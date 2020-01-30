@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'redux'
+import {connect} from 'react-redux'
+import FavoriteItem from '../FavoriteItem/FavoriteItem';
 
 
 
@@ -19,14 +20,19 @@ class Favorites extends Component {
     render() {
         return (
             <h1>Favorites</h1>
-            {this.props.reduxState.favorites.map}
+            {this.props.reduxState.favorites.map((fav) => {
+                return(
+                    <FavoriteItem fav={fav}/>
+
+                )
+            })}
         );
     }
 
 }
 
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
-
-
-
-export default connect () (Favorites);
+export default connect(mapStateToProps)(Favorites);
