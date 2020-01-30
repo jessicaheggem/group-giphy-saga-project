@@ -8,10 +8,13 @@ class Search extends Component {
     // componentDidMount(){
     //     this.handleClick();
     // }
+    state = {
+        search: ''
+    }
 
-    handleChange = () => {
+    handleChange = (event) => {
         this.setState({
-            search: ''
+            search: event.target.value
         })
     }
 
@@ -19,8 +22,11 @@ class Search extends Component {
     handleClick = () => {
         this.props.dispatch({
             type: 'GIPHY_SEARCH',
-            // payload: this.state.search
+            payload: this.state.search
         })
+        console.log(this.state.search);
+
+        
     }
 
     render() {

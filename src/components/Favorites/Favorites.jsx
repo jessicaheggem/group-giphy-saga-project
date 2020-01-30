@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import FavoriteItem from '../FavoriteItem/FavoriteItem';
 
+
 class Favorites extends Component {
     componentDidMount() {
         // use component did mount to dispatch an action to request the plantList from the API
