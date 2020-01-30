@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'redux'
+import {connect} from 'react-redux';
 
 
 
@@ -19,7 +19,7 @@ class Favorites extends Component {
     render() {
         return (
             <h1>Favorites</h1>
-            {this.props.reduxState.favorites.map}
+            // {this.props.reduxState.favorites.map}
         );
     }
 
