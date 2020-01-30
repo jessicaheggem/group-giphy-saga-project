@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
+import { connect } from 'react-redux'
 
 
 
 class Search extends Component {
+    // componentDidMount(){
+    //     this.handleClick();
+    // }
+
     handleChange = () => {
         this.setState({
             search: ''
@@ -14,7 +19,7 @@ class Search extends Component {
     handleClick = () => {
         this.props.dispatch({
             type: 'GIPHY_SEARCH',
-            payload: this.state.search
+            // payload: this.state.search
         })
     }
 
@@ -32,4 +37,4 @@ class Search extends Component {
 
 }
 
-export default Search;
+export default connect()(Search);

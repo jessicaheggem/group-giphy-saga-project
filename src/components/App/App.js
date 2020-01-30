@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Search from '../Search/Search';
 import Favorites from '../Favorites/Favorites';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 class App extends Component {
 
   render() {
