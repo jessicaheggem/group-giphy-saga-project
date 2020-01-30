@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux'
 
+
+
 class Search extends Component {
     // componentDidMount(){
     //     this.handleClick();
@@ -12,6 +14,7 @@ class Search extends Component {
             search: ''
         })
     }
+
 
     handleClick = () => {
         this.props.dispatch({
@@ -27,6 +30,7 @@ class Search extends Component {
                 <h1>Search</h1>
                 <input type="text" placeholder="Search Gifs" onChange={this.handleChange} />
                 <button onClick={this.handleClick}>Search</button>
+                
             </>
         );
     }
