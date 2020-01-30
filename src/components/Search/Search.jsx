@@ -8,7 +8,12 @@ class Search extends Component {
         })
     }
 
-    // handleClick 
+    handleClick = () => {
+        this.props.dispatch({
+            type: 'GIPHY_SEARCH',
+            payload: this.state.search
+        })
+    }
 
     render() {
         return (
