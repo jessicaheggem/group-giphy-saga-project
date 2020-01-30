@@ -15,18 +15,17 @@ function* rootSaga() {
     
 }
 
-function* getSearch(){
-    console.log('in saga giphy search');
-    let response = yield axios.get('/api/search');
+function* getSearch(action){
+    let response = yield axios.get(`/api/search?searchterm=${action.payload}`);
     yield put ({type: 'SET_GIPHY', payload: response.data})
-    console.log(response.data);
+    console.log('in getsearch', response.data.data);
     
 }
 
 const giphyReducer = (state = {}, action) => {
     if (action.type === 'SET_GIPHY'){
-        console.log('we in set giphy now');
-        return 'apples'
+        
+        return action.payload
     }
     return state
 }
