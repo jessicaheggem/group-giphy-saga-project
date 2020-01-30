@@ -7,7 +7,10 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log('got to /search');
-    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}q=${req.query}`)
+    console.log('api key', process.env.GIPHY_API_KEY);
+    
+    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=dog`)
+
     .then(response =>{
         console.log(response.data);
         res.send(response.data) 
