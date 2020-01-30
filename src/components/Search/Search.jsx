@@ -8,12 +8,15 @@ class Search extends Component {
         })
     }
 
+    // handleClick 
+
     render() {
         return (
             <>
                 <Header />
                 <h1>Search</h1>
                 <input type="text" placeholder="Search Gifs" onChange={this.handleChange} />
+                <button onClick={this.handleClick}>Search</button>
             </>
         );
     }
