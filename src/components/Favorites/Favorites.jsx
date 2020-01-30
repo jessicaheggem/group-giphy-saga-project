@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
+import {connect} from 'redux'
+
+
 
 class Favorites extends Component {
+    componentDidMount() {
+        // use component did mount to dispatch an action to request the plantList from the API
+        this.getFavorites();
+    }
 
-  render() {
-    return (
-      <h1>Favorites</h1>
+    getFavorites = () => {
+        this.props.dispatch({
+            type: 'FETCH_FAVORITES'
+        })
+    }
+    
 
-    );
-  }
+    render() {
+        return (
+            <h1>Favorites</h1>
+            {this.props.reduxState.favorites.map}
+        );
+    }
 
 }
 
-export default Favorites;
+
+
+
+
+export default connect () (Favorites);
