@@ -9,6 +9,12 @@ router.get('/', (req, res) => {
     SELECT "category".name, "favorites".url FROM "favorites"
     JOIN "category" ON "favorites".category_id = "category".id;                    
   `
+  pool.query(queryText)
+    .then((result) => { res.send(result.rows); })
+    .catch((err) => {
+      console.log('Error completing SELECT plant query', err);
+      res.sendStatus(500);
+    });
 });
 
 // add a new favorite 
