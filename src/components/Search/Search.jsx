@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 import { connect } from 'react-redux'
-
+import SearchItem from '../SearchItem/SearchItem'
 
 
 class Search extends Component {
@@ -36,11 +36,19 @@ class Search extends Component {
                 <h1>Search</h1>
                 <input type="text" placeholder="Search Gifs" onChange={this.handleChange} />
                 <button onClick={this.handleClick}>Search</button>
-                
+                {this.props.reduxState.giphyReducer.map((search) => {
+                    return(
+                        <SearchItem search={search}/>
+                    )
+                })}
             </>
         );
     }
 
 }
 
-export default connect()(Search);
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
+
+export default connect(mapStateToProps)(Search);
