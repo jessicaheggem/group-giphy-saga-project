@@ -14,7 +14,7 @@ import axios from 'axios';
 const favorites = (state = ['test'], action) => {
     if (action.type === 'SET_FAVORITES') {
         return action.payload;
-    }
+    } 
     return state;
 }
 
@@ -30,7 +30,13 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('GIPHY_SEARCH', getSearch);
     yield takeEvery('FETCH_FAVORITES', fetchFavorites);
-    
+    yield takeEvery('ADD_TO_FAVORITES', addToFavorites);
+}
+
+function* addToFavorites(action) {
+    console.log('in addToFavorites')
+    yield axios.post('/api/favorite', action.payload);
+    yield put({type: 'FETCH_FAVORITES'});
 }
 
 function* fetchFavorites(){
