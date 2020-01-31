@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class FavoriteItem extends Component {
     componentDidMount() {
-        // use component did mount to dispatch an action to request the plantList from the API
+        // use component did mount to dispatch an action 
     }
 
     render() {
         return (
             <>
+            {/* {JSON.stringify(this.props.fav)} */}
+            <img src={this.props.fav.url} />
+
             </>
         );
     }
