@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     console.log('api key', process.env.GIPHY_API_KEY);
     console.log(req.query)
     
-    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.query.searchterm}`)
+    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.query.searchterm}&limit=10`)
 
     .then(response =>{
         // console.log(response.data);

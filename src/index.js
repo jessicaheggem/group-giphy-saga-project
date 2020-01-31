@@ -41,12 +41,12 @@ function* fetchFavorites(){
 
 function* getSearch(action){
     let response = yield axios.get(`/api/search?searchterm=${action.payload}`);
-    yield put ({type: 'SET_GIPHY', payload: response.data})
+    yield put ({type: 'SET_GIPHY', payload: response.data.data})
     console.log('in getsearch', response.data.data);
     
 }
 
-const giphyReducer = (state = {}, action) => {
+const giphyReducer = (state = [], action) => {
     if (action.type === 'SET_GIPHY'){
         
         return action.payload
